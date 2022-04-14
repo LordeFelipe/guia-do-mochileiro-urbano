@@ -1,8 +1,7 @@
 import { Container } from './styles'
 import BackButton from '../../components/BackButton'
-import {AiOutlineLike} from 'react-icons/ai'
-import {AiOutlineDislike} from 'react-icons/ai'
 import img from '../../assets/market.jpg'
+import PromotionRow from '../../components/PromotionRow'
 
 const PromotionsPage = () => {
   return(
@@ -23,27 +22,9 @@ const PromotionsPage = () => {
           <h1>Promoções</h1>
         </section>
         <section className="promotions">
-          <div className="product">
-            <img src={img} alt="" />
-            <div className="info">
-              <h2 className="title">Alface Verde</h2>
-              <p className="old-price">De R$ 25,00</p>
-              <p className="new-price">Por R$ 10,00</p>
-            </div>
-            <div className="buttons">
-              <button className="details"> Detalhes </button>
-              <div className="like-deslike">
-                <div className='like'>
-                  <button><AiOutlineLike size={"7vh"}/></button>
-                  <p> 5 </p>
-                </div>
-                <div className="deslike">
-                  <button><AiOutlineDislike size={"7vh"}/></button>
-                  <p>30 </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PromotionRow/>
+          <PromotionRow/>
+          <PromotionRow/>
         </section>
       </div>
     </Container>

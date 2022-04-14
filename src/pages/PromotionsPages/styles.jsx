@@ -142,7 +142,9 @@ export const Container = styled.div`
             align-items: center;
             justify-content: center;
             button{
-              background-color: none; 
+              background: none; 
+              border: none;
+              cursor: pointer;
             }
             p {
               font-size: 3vh;
