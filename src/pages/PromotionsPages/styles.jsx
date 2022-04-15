@@ -2,8 +2,13 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 80vw;
-  margin: 5vh auto;
+  margin: 5vh auto 0;
+  padding-bottom: 5vh;
   font-family: "Roboto", sans-serif;
+
+  p, h1, h2, h3, h4, h5 {
+      color:black;
+  }
   
   .sections {
     display: flex;

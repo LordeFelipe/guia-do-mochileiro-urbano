@@ -14,5 +14,6 @@ export const GlobalStyle = createGlobalStyle`
 
     .site-content {
         min-height: 100vh;
+        background-color: white;
     }
 `
