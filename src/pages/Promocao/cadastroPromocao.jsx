@@ -1,18 +1,26 @@
 import React from 'react';
-import Card from "../components/card";
+import Card from '../components/card';
 import Col from '../components/col';
-import Row from "../components/row";
+import Row from '../components/row';
+import { ServicoPromocao } from './ServicoPromocao';
 
 const estadoInicial = {
   nome: '',
   descricao: '',
   preco_original: '',
-  preco_promocional: '',
+  preco_promocional:'',
+  erros: [],
+  sucesso: false,
 }
 
 class CadastroPromocao extends React.Component {
 
   state = estadoInicial
+
+  constructor() {
+    super()
+    this.servico = new ServicoPromocao()
+  }
 
   onChange = (event) => {
     const valor = event.target.value
@@ -21,101 +29,138 @@ class CadastroPromocao extends React.Component {
   }
   onSubmit = (event) => {
     event.preventDefault()
-    console.log('  onSubmit => state')
+    console.log('  onSubmit => state v2')
     console.log(this.state)
+    const produto = {
+      nome: this.state.nome,
+      descricao: this.state.descricao,
+      preco_original: this.state.preco_original,
+      preco_promocional: this.state.preco_promocional,
+    }
+    try {
+      this.servico.validar(produto)
+      this.limpaCampos()
+      this.setState({ sucesso: true })
+    } catch (erro) {
+      const erros = erro.msgs_erro
+      this.setState({ erros })
+    }
   }
   limpaCampos = () => {
     this.setState(estadoInicial)
   }
   render() {
     return (
-      <Card header="Cadastro Promoção">
-        <form id="frmPromocao" onSubmit={this.onSubmit}>
+      <Card header='Cadastro Promoção'>
+        <form id='frmPromocao' onSubmit={this.onSubmit}>
+          {this.state.sucesso &&
+            <div className='alert alert-dismissible alert-success'>
+              <button type='button'
+                className='btn-close'
+                data-bs-dismiss='alert'></button>
+              <strong>Sucesso!</strong> Promoção cadatrada.
+            </div>
+          }
+
+          {this.state.erros && this.state.erros.length > 0 &&
+            this.state.erros.map((msg) => {
+              return (
+                <div key={msg.id} className='alert alert-dismissible alert-danger'>
+                  <button type='button'
+                    className='btn-close'
+                    data-bs-dismiss='alert'
+                    disabled></button>
+                  <strong>Erro!</strong> {msg.msg}
+                </div>
+              )
+            })
+          }
+          <p className='text-danger'>* Campos obrigatórios</p>
           <Row>
-            <Col colStyle="col-md-12">
-              <div className="form-group">
+            <Col colStyle='col-md-12'>
+              <div className='form-group'>
                 <label>Nome: *</label>
-                <input name="nome"
-                  type="text"
+                <input name='nome'
+                  type='text'
                   value={this.state.nome}
                   onChange={this.onChange}
                   placeholder='Nome do produto'
-                  className="form-control" />
+                  className='form-control' />
               </div>
             </Col>
           </Row>
 
           <Row>
-            <Col colStyle="col-md-12">
+            <Col colStyle='col-md-12'>
               <label>Descrição: *</label>
-              <textarea name="descricao"
+              <textarea name='descricao'
                 value={this.state.descricao}
                 onChange={this.onChange}
                 placeholder='Descrição do produto'
-                className="form-control" />
+                className='form-control' />
             </Col>
           </Row>
 
           <Row>
-            <Col colStyle="col-md-6">
+            <Col colStyle='col-md-6'>
               <label>Preço Original: *</label>
-              <div class="input-group mb-3">
-                <span class="input-group-text">R$</span>
-                <input name="preco_original"
-                  type="text"
-                  inputmode="decimal"
+              <div className='input-group mb-3'>
+                <span className='input-group-text'>R$</span>
+                <input name='preco_original'
+                  type='text'
+                  inputMode='decimal'
                   value={this.state.preco_original}
                   onChange={this.onChange}
                   placeholder='0,00'
-                  className="form-control" />
+                  className='form-control' />
               </div>
             </Col>
 
-            <Col colStyle="col-md-6">
-              <div className="form-group">
+            <Col colStyle='col-md-6'>
+              <div className='form-group'>
                 <label>Preço Promocional: *</label>
-                <div class="input-group mb-3">
-                  <span class="input-group-text">R$</span>
-                  <input name="preco_promocional"
-                    type="text"
-                    inputmode="decimal"
+                <div className='input-group mb-3'>
+                  <span className='input-group-text'>R$</span>
+                  <input name='preco_promocional'
+                    type='text'
+                    inputMode='decimal'
                     value={this.state.preco_promocional}
                     onChange={this.onChange}
                     placeholder='0,00'
-                    className="form-control" />
+                    className='form-control' />
                 </div>
               </div>
             </Col>
           </Row>
 
           <Row>
-            <Col colStyle="col-md-12">
-              <label for="formFile"
-                class="form-label">
-                  Escolha uma imagem:
-                </label>
-              <input class="form-control"
-                type="file"
-                accept="image/*"
-                id="formFile" />
+            <Col colStyle='col-md-12'>
+              <label htmlFor='formFile'
+                className='form-label'>
+                Escolha uma imagem:
+              </label>
+              <input className='form-control'
+                type='file'
+                accept='image/*'
+                id='formFile' />
             </Col>
           </Row>
 
           <Row>
-            <Col colStyle="col-md-6">
-              <div className="text-center">
-                <button className="btn btn-primary"
+            <Col colStyle='col-md-6'>
+              <div className='text-center'>
+                <button className='btn btn-primary'
                   onClick={this.limpaCampos}>
-                    Limpar
+                  Limpar
                 </button>
               </div>
             </Col>
 
-            <Col colStyle="col-md-6">
-              <div className="text-center">
-                <button className="btn btn-success"
-                  type="submit">
-                    Salvar
+            <Col colStyle='col-md-6'>
+              <div className='text-center'>
+                <button className='btn btn-success'
+                  type='submit'>
+                  Salvar
                 </button>
               </div>
             </Col>
