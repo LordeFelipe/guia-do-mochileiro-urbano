@@ -1,9 +1,10 @@
 import React from 'react';
 import BackButton from '../../components/BackButton';
-import Card from '../components/card';
-import Col from '../components/col';
-import Row from '../components/row';
-import { ServicoPromocao } from './ServicoPromocao';
+import Card from './components/Card'
+import Col from './components/Col';
+import Row from './components/Row';
+import { ServicoPromocao } from './servicoPromocao';
+import 'bootswatch/dist/darkly/bootstrap.min.css'
 
 const estadoInicial = {
   nome: '',
