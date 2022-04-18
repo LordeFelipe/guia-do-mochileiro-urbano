@@ -35,10 +35,12 @@ const ProductPage = () => {
           <div className="info-box">
             <p>Promoção válida até o dia 20/05. A promoção só vale para compras de mais de 2kg de Alface Verde.</p>
           </div>
-          <div className="market-info">
+          <div className="market">
             <img src={img} alt="" />  
-            <h1 className="title">Carrefour - Asa Norte</h1>
-            <p>Via W3 Norte, 504/505 - Bloco A</p>
+            <div className="market-info">
+              <h1 className="title">Carrefour - Asa Norte</h1>
+              <p>Via W3 Norte, 504/505 - Bloco A</p>
+            </div>
           </div>
         </section>
       </div>

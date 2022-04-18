@@ -14,17 +14,17 @@ export const Container = styled.div`
     margin-top: 2vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 5vw;
     .first-column, .second-column {
       width: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 2vh;
     }
 
     .first-column{
-      gap: 2vh;
       h1 {
         font-size: 6vh;
         font-weight: bold;
@@ -80,6 +80,44 @@ export const Container = styled.div`
 
       }
 
+    }
+
+    .second-column{
+      justify-content: start;
+      .old-price, .new-price {
+        font-size: 5vh;
+        margin: 0;
+      }
+      .old-price{
+        text-decoration: line-through;
+      }
+      .info-box {
+        padding: 20px;
+        border: 3px solid #C4C4C4;
+        min-height: 50vh;
+
+        p {
+          font-size: 3vh;
+        }
+      }
+      .market {
+        display: flex;
+        align-items: center;
+        gap: 5vw;
+
+        img {
+          border-radius: 200px;
+          height: 25vh;
+          width: 25vh;
+          object-fit: cover;
+        }
+
+        .market-info {
+          h1 {
+            font-size: 5vh;
+          }
+        }
+      }
     }
   }
   
