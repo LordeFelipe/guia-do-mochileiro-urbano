@@ -18,10 +18,10 @@ export class ServicoPromocao {
       erros.push({ id: 2, msg: 'O campo Descrição é obrigatório.' })
     }
     if (isNaN(produto.preco_original) || produto.preco_original <= 0) {
-      erros.push({ id: 3, msg: 'O campo Preço Original deve ser maior do quer zero(0).' })
+      erros.push({ id: 3, msg: 'O campo Preço Original deve ser maior do que R$ 0,00' })
     }
     if (isNaN(produto.preco_promocional) || produto.preco_promocional <= 0) {
-      erros.push({ id: 4, msg: 'O campo Preço Promocional deve ser maior do quer zero(0).' })
+      erros.push({ id: 4, msg: 'O campo Preço Promocional deve ser maior do que R$ 0,00' })
     }
     console.log('erros:')
     console.log(erros)

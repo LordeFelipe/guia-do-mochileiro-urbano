@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootswatch/dist/darkly/bootstrap.min.css'
 
 function Row(props) {
     return (

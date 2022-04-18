@@ -1,10 +1,9 @@
 import React from 'react';
 import BackButton from '../../components/BackButton';
-import Card from './components/Card'
+import Card from './components/Card';
 import Col from './components/Col';
 import Row from './components/Row';
 import { ServicoPromocao } from './servicoPromocao';
-import 'bootswatch/dist/darkly/bootstrap.min.css'
 
 const estadoInicial = {
   nome: '',
@@ -66,7 +65,7 @@ class CadastroPromocao extends React.Component {
               </div>
             }
 
-            {this.state.erros && this.state.erros.length > 0 &&
+            {this.state.erros.length > 0 &&
               this.state.erros.map((msg) => {
                 return (
                   <div key={msg.id} className='alert alert-dismissible alert-danger'>
@@ -153,7 +152,9 @@ class CadastroPromocao extends React.Component {
             <Row>
               <Col colStyle='col-md-6'>
                 <div className='text-center'>
-                  <button className='btn btn-primary'
+                  <button className='btn btn-danger'
+                    type='button'
+                    title='Limpa todos os campos'
                     onClick={this.limpaCampos}>
                     Limpar
                   </button>
@@ -162,8 +163,9 @@ class CadastroPromocao extends React.Component {
 
               <Col colStyle='col-md-6'>
                 <div className='text-center'>
-                  <button className='btn btn-success'
-                    type='submit'>
+                  <button className='btn btn-primary'
+                    type='submit'
+                    title='Salva a promoção'>
                     Salvar
                   </button>
                 </div>

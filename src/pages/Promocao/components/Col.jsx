@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootswatch/dist/darkly/bootstrap.min.css'
 
 function Col(props) {
     return (
