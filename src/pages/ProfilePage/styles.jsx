@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 90vh;
-  background-color: #CFCFCF;
+  background-color: white;
   .prof-page{
     display: flex;
     flex-direction: row;
@@ -20,6 +20,7 @@ export const Container = styled.div`
       margin-left: 5%;
       border: 2px solid black;
       margin-right: 10rem;
+      background-color: #C4C4C4;
       img {
         height: 60%;
         width:75%;
@@ -48,6 +49,7 @@ export const Container = styled.div`
     }
     .marketlist{
       border: 2px solid black;
+      padding: 20px;
       border-radius: 20px;
       display: flex;
       height: 75vh;
