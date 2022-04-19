@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.div`
   height: 90vh;
   background-color: white;
+
+  p, h2 {
+    color: white;
+  }
   .prof-page{
     display: flex;
     flex-direction: row;

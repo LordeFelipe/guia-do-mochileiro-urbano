@@ -30,7 +30,7 @@ const PromotionsPage = () => {
         <section className="promotions">
           {
             products.map((product, key) => {
-            return (<PromotionRow id={key+1}/>)
+              return (<PromotionRow id={key+1}/>)
             })
           }
         </section>
