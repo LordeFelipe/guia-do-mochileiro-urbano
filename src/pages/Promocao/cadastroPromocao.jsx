@@ -28,6 +28,26 @@ class CadastroPromocao extends React.Component {
     const nomeDoCampo = event.target.name
     this.setState({ [nomeDoCampo]: valor })
   }
+
+  onChangePreco = (event) => {
+    let valor = event.target.value
+    const nomeDoCampo = event.target.name
+    // aceita apenas numeros e virgula 
+    valor = valor.replace(/[^\d,]/gi, '')
+    this.setState({ [nomeDoCampo]: valor })
+  }
+
+  OnBlurPreco = (event) => {
+    let valor = event.target.value
+    const nomeDoCampo = event.target.name
+    // formatar o com duas casas decimais
+    valor = valor.replace(',', '.')
+    valor = parseFloat(valor)
+    valor = valor.toFixed(2)
+    valor = valor.replace('.', ',')
+    this.setState({ [nomeDoCampo]: valor })
+  }
+
   onSubmit = (event) => {
     event.preventDefault()
     console.log('  onSubmit => state v2')
@@ -111,11 +131,11 @@ class CadastroPromocao extends React.Component {
                   <span className='input-group-text'>R$</span>
                   <input name='preco_original'
                     type='text'
-                    inputMode='decimal'
                     value={this.state.preco_original}
-                    onChange={this.onChange}
                     placeholder='0,00'
-                    className='form-control' />
+                    className='form-control'
+                    onChange={this.onChangePreco}
+                    onBlur={this.OnBlurPreco} />
                 </div>
               </Col>
 
@@ -126,11 +146,11 @@ class CadastroPromocao extends React.Component {
                     <span className='input-group-text'>R$</span>
                     <input name='preco_promocional'
                       type='text'
-                      inputMode='decimal'
                       value={this.state.preco_promocional}
-                      onChange={this.onChange}
                       placeholder='0,00'
-                      className='form-control' />
+                      className='form-control'
+                      onChange={this.onChangePreco}
+                      onBlur={this.OnBlurPreco} />
                   </div>
                 </div>
               </Col>

@@ -17,11 +17,11 @@ export class ServicoPromocao {
     if (!produto.descricao) {
       erros.push({ id: 2, msg: 'O campo Descrição é obrigatório.' })
     }
-    if (isNaN(produto.preco_original) || produto.preco_original <= 0) {
-      erros.push({ id: 3, msg: 'O campo Preço Original deve ser maior do que R$ 0,00' })
+    if (!produto.preco_original) {
+      erros.push({ id: 3, msg: 'O campo Preço Original é obrigatório.' })
     }
-    if (isNaN(produto.preco_promocional) || produto.preco_promocional <= 0) {
-      erros.push({ id: 4, msg: 'O campo Preço Promocional deve ser maior do que R$ 0,00' })
+    if (!produto.preco_promocional) {
+      erros.push({ id: 4, msg: 'O campo Preço Promocional é obrigatório.' })
     }
     console.log('erros:')
     console.log(erros)
