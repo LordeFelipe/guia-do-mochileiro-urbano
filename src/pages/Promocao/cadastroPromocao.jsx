@@ -44,6 +44,9 @@ class CadastroPromocao extends React.Component {
     valor = valor.replace(',', '.')
     valor = parseFloat(valor)
     valor = valor.toFixed(2)
+    if (isNaN(valor)){
+      valor = ''
+    }
     valor = valor.replace('.', ',')
     this.setState({ [nomeDoCampo]: valor })
   }
