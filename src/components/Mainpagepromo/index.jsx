@@ -5,12 +5,16 @@ import {BiDislike} from 'react-icons/bi'
 import img from '../../assets/market.jpg'
 import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useProductContext } from '../../contexts/useProductContext'
 
-const Mainpagepromo = () => {
+const Mainpagepromo = ({id}) => {
+
+    const {products} = useProductContext();
+    const product = products[id-1]
     
     let navigate = useNavigate()
-    const [count, setCounter] = useState(0);
-    const [count2, setCounter2] = useState(0);
+    const [count, setCounter] = useState(product.likes);
+    const [count2, setCounter2] = useState(product.deslikes);
     const increase = () => {
         setCounter(count => count + 1);
       };
@@ -32,11 +36,11 @@ const Mainpagepromo = () => {
     return(
         <Container>
             <div className="product">
-                <img src={img} alt="" />
+                <img src={product.img} alt="" />
                 <div className="info">
-                <h2 className="title">Alface Verde</h2>
-                <p className="old-price">De R$ 25,00</p>
-                <p className="new-price">Por R$ 10,00</p>
+                <h2 className="title">{product.name}</h2>
+                <p className="old-price">De R$ {product.oldPrice},00</p>
+                <p className="new-price">Por R$ {product.newPrice},00</p>
                 </div>
                 <div className="buttons">
                 <button className="details" onClick={() => navigate('/products/1')}> Detalhes </button>

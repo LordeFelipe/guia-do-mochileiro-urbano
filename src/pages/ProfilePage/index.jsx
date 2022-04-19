@@ -1,9 +1,10 @@
 import { Container } from './styles'
 import Profile from '../../assets/Perfil.png'
 import Mainpagepromo from '../../components/Mainpagepromo'
-
+import { useProductContext } from '../../contexts/useProductContext'
 
 const ProfilePage = () => {
+  const {products} = useProductContext();
   return(
     <Container>
       <div className= "prof-page">
@@ -14,9 +15,9 @@ const ProfilePage = () => {
           <button className='addpic' >Adicionar Foto</button>
         </div>
         <div className='marketlist'>
-          <Mainpagepromo/>
-          <Mainpagepromo/>
-          <Mainpagepromo/>
+          <Mainpagepromo id={1}/>
+          <Mainpagepromo id={2}/>
+          <Mainpagepromo id={3}/>
         </div>
       </div>
     </Container>

@@ -1,7 +1,6 @@
 import { Container } from './styles'
 import {BiLike} from 'react-icons/bi'
 import {BiDislike} from 'react-icons/bi'
-import img from '../../assets/market.jpg'
 import { useNavigate } from 'react-router-dom'
 import { useProductContext } from '../../contexts/useProductContext'
 

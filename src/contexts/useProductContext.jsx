@@ -24,6 +24,15 @@ const ContextProvider = ({children}) => {
       deslikes: 15,
       img: img
     },
+    {
+      name: 'Maçã',
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper vulputate habitasse nunc, sed. Cras fringilla amet ac dictum malesuada nunc mi. Erat luctus ac elit aliquet nunc pellentesque orci montes, dictum. Vitae, lorem euismod lobortis arcu senectus accumsan id ac.",
+      oldPrice: 8,
+      newPrice: 4,
+      likes: 10,
+      deslikes: 15,
+      img: img
+    },
   ])
 
   const [markets, setMarkets] = useState([])
