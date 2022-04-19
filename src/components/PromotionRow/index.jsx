@@ -2,8 +2,10 @@ import { Container } from './styles'
 import {BiLike} from 'react-icons/bi'
 import {BiDislike} from 'react-icons/bi'
 import img from '../../assets/market.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const PromotionRow = () => {
+  const navigate = useNavigate()
   return(
     <Container>
       <div className="product">
@@ -14,7 +16,7 @@ const PromotionRow = () => {
           <p className="new-price">Por R$ 10,00</p>
         </div>
         <div className="buttons">
-          <button className="details"> Detalhes </button>
+          <button className="details" onClick={() => navigate('/products/2')}> Detalhes </button>
           <div className="like-deslike">
             <div className='like'>
               <button><BiLike size={"7vh"}/></button>

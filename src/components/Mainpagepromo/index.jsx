@@ -39,7 +39,7 @@ const Mainpagepromo = () => {
                 <p className="new-price">Por R$ 10,00</p>
                 </div>
                 <div className="buttons">
-                <button className="details" onClick={() => navigate('/markets/1')}> Detalhes </button>
+                <button className="details" onClick={() => navigate('/products/1')}> Detalhes </button>
                 <div className="like-deslike">
                     <div className='like'>
                     <button disabled={disable} onClick={buttoncall}><BiLike size={"5vh"} color={"green"}/></button>
