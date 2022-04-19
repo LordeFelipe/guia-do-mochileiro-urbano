@@ -2,6 +2,7 @@ import React from 'react'
 import Router from './routes'
 import { BrowserRouter } from "react-router-dom";
 import Navbar from './components/Navbar'
+import 'bootswatch/dist/cosmo/bootstrap.min.css'
 import { GlobalStyle } from "./styles/Global";
 
 function App() {
