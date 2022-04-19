@@ -4,10 +4,15 @@ import img from '../../assets/market.jpg'
 import {BiLike} from 'react-icons/bi'
 import {BiDislike} from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import { useProductContext } from '../../contexts/useProductContext'
 
 const ProductPage = () => {
 
+  const { products, addProduct} = useProductContext();
   let navigate = useNavigate()
+
+  addProduct()
+
   return(
     <Container>
       <BackButton/>
