@@ -3,8 +3,11 @@ import BackButton from '../../components/BackButton'
 import img from '../../assets/market.jpg'
 import PromotionRow from '../../components/PromotionRow'
 import { useNavigate } from 'react-router-dom'
+import { useProductContext } from '../../contexts/useProductContext'
 
 const PromotionsPage = () => {
+
+  const { products, addProduct} = useProductContext();
 
   let navigate = useNavigate()
   return(
@@ -25,9 +28,11 @@ const PromotionsPage = () => {
           <h1>Promoções</h1>
         </section>
         <section className="promotions">
-          <PromotionRow/>
-          <PromotionRow/>
-          <PromotionRow/>
+          {
+            products.map((product, key) => {
+            return (<PromotionRow id={key+1}/>)
+            })
+          }
         </section>
       </div>
     </Container>

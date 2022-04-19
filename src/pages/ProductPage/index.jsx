@@ -8,7 +8,7 @@ import { useProductContext } from '../../contexts/useProductContext'
 
 const ProductPage = () => {
 
-  const { products, addProduct} = useProductContext();
+  const { products} = useProductContext();
   let navigate = useNavigate()
   let {id} = useParams();
   const product = products[id-1]
@@ -35,8 +35,8 @@ const ProductPage = () => {
           <button className='route'>Traçar Rota</button>
         </section>
         <section className="second-column">
-          <p className="old-price">De R$ 25,00</p>
-          <p className="new-price">Por R$ 10,00</p>
+          <p className="old-price">De R$ {product.oldPrice},00</p>
+          <p className="new-price">Por R$ {product.newPrice},00</p>
           <div className="info-box">
             <p>{product.description}</p>
           </div>
