@@ -1,5 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import img from "../assets/default.png"
+import maca from "../assets/maca.jpg"
+import sabonete from "../assets/sabonete.png"
+import alface from "../assets/alface.webp"
 import market from "../assets/market.jpg"
 
 const ProductContext = createContext()
@@ -8,13 +11,13 @@ const ContextProvider = ({children}) => {
 
   const [products, setProducts] = useState([
     {
-      name: 'Alfaca Verde',
+      name: 'Alface',
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper vulputate habitasse nunc, sed. Cras fringilla amet ac dictum malesuada nunc mi. Erat luctus ac elit aliquet nunc pellentesque orci montes, dictum. Vitae, lorem euismod lobortis arcu senectus accumsan id ac.",
       oldPrice: 15,
       newPrice: 20,
       likes: 53,
       deslikes: 20,
-      img: img
+      img: alface
     },
     {
       name: 'Sabonete',
@@ -23,7 +26,7 @@ const ContextProvider = ({children}) => {
       newPrice: 25,
       likes: 150,
       deslikes: 15,
-      img: img
+      img: sabonete
     },
     {
       name: 'Maçã',
@@ -32,7 +35,7 @@ const ContextProvider = ({children}) => {
       newPrice: 4,
       likes: 10,
       deslikes: 15,
-      img: img
+      img: maca
     },
   ])
 
