@@ -53,7 +53,10 @@ const ContextProvider = ({children}) => {
   ])
 
   const addProduct = (product) => {
-    console.log("oi")
+    product.img = img
+    var newProducts = products
+    newProducts.push(product)
+    setProducts(newProducts)
   }
 
   return(
