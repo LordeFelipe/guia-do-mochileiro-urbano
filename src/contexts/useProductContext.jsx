@@ -35,7 +35,21 @@ const ContextProvider = ({children}) => {
     },
   ])
 
-  const [markets, setMarkets] = useState([])
+  const [markets, setMarkets] = useState([
+    {
+      name: 'Carrefour - Asa Norte',
+      address: 'Via W3 Norte, 504/505 - Bloco A',
+      phone: '61 3440-5757',
+      img: img
+    },
+    {
+      name: 'Carrefour - Asa Sul',
+      address: 'Via W3 Sul, 504/505 - Bloco A',
+      phone: '61 3440-5757',
+      img: img
+    }
+
+  ])
 
   const addProduct = (product) => {
     console.log("oi")
