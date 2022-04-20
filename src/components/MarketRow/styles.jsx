@@ -27,9 +27,6 @@ export const Container = styled.div`
         p{
           font-size: 3vh;
         }
-        .address{
-          text-decoration: line-through;
-        }
       }
 
       .buttons {
