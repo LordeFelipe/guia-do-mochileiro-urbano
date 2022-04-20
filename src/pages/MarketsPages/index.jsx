@@ -9,7 +9,7 @@ const MarketsPage = () => {
       <BackButton/>
       <div className="sections">
         <section className="title">
-          <h1>Lista de Mercados</h1>
+          <h1>Lista de mercados</h1>
         </section>
         <section className="markets">
           <MarketRow/>
