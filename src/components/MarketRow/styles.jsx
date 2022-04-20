@@ -58,7 +58,7 @@ export const Container = styled.div`
           }
         }
 
-        &.route {
+        .route {
           width: 100%;
           font-size: 3vh;
           padding: 10px 30px;
@@ -68,7 +68,12 @@ export const Container = styled.div`
           transition: 300ms;
           cursor: pointer;
           margin: 0.5vh 0;
-          background: #134878;
+          background-color: #134878;
+
+          &:hover {
+            transition: 300ms;
+            filter: brightness(0.7)
+          }
         }
         
       }
