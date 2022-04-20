@@ -11,7 +11,7 @@ const MarketRow = ({id}) => {
   return(
     <Container>
       <div className="market">
-        <img src={img} alt="" />
+        <img src={market.img} alt="" />
         <div className="info">
           <h2 className="title">{market.name}</h2>
           <p className="address">{market.address}</p>

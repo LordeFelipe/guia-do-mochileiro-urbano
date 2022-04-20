@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import img from "../assets/default.png"
+import market from "../assets/market.jpg"
 
 const ProductContext = createContext()
 
@@ -40,13 +41,13 @@ const ContextProvider = ({children}) => {
       name: 'Carrefour - Asa Norte',
       address: 'Via W3 Norte, 504/505 - Bloco A',
       phone: '61 3440-5757',
-      img: img
+      img: market
     },
     {
       name: 'Carrefour - Asa Sul',
       address: 'Via W3 Sul, 504/505 - Bloco A',
       phone: '61 3440-5757',
-      img: img
+      img: market
     }
 
   ])
