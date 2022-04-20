@@ -11,7 +11,7 @@ const MarketsPage = () => {
         <section className="title">
           <h1>Lista de Mercados</h1>
         </section>
-        <section className="promotions">
+        <section className="markets">
           <MarketRow/>
           <MarketRow/>
           <MarketRow/>

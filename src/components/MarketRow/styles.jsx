@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    .product {
+    .market {
       display: flex;
       justify-content: space-between;
       background-color: #C4C4C4;
@@ -27,7 +27,7 @@ export const Container = styled.div`
         p{
           font-size: 3vh;
         }
-        .old-price{
+        .address{
           text-decoration: line-through;
         }
       }
@@ -75,7 +75,6 @@ export const Container = styled.div`
             filter: brightness(0.7)
           }
         }
-        
       }
     }
 `
