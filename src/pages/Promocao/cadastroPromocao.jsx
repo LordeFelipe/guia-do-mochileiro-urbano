@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
 import { useProductContext } from '../../contexts/useProductContext';
 import Card from './components/Card';
@@ -8,31 +9,14 @@ import Row from './components/Row';
 const CadastroPromocao = () => {
 
   const {addProduct} = useProductContext()
+  const navigate = useNavigate()
 
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [oldPrice, setOldPrice] = useState('')
   const [newPrice, setNewPrice] = useState('')
 
-  const onChangePreco = (event) => {
-    let valor = event.target.value
-    const nomeDoCampo = event.target.name
-    // aceita apenas numeros e virgula 
-    valor = valor.replace(/[^\d,]/gi, '')
-  }
-
-  const OnBlurPreco = (event) => {
-    let valor = event.target.value
-    const nomeDoCampo = event.target.name
-    // formatar o com duas casas decimais
-    valor = valor.replace(',', '.')
-    valor = parseFloat(valor)
-    valor = valor.toFixed(2)
-    if (isNaN(valor)){
-      valor = ''
-    }
-    valor = valor.replace('.', ',')
-  }
+  const [errors, setErrors] = useState([])
 
   const onSubmit = (event) => {
     event.preventDefault()
@@ -44,7 +28,12 @@ const CadastroPromocao = () => {
     }
     try {
       addProduct(produto)
-      limpaCampos()
+      
+      if(validar(produto)){
+        limpaCampos()
+        alert("Produto Cadastrado!")
+        navigate('/')
+      }
     } catch (erro) {
       const erros = erro.msgs_erro
     }
@@ -59,37 +48,36 @@ const CadastroPromocao = () => {
   const validar = (produto) => {
     const erros = []
 
-    if (!produto.nome) {
+    if (!produto.name) {
       erros.push({ id: 1, msg: 'O campo Nome é obrigatório.' })
     }
-    if (!produto.descricao) {
+    if (!produto.description) {
       erros.push({ id: 2, msg: 'O campo Descrição é obrigatório.' })
     }
-    if (!produto.preco_original) {
+    if (!produto.oldPrice) {
       erros.push({ id: 3, msg: 'O campo Preço Original é obrigatório.' })
     }
-    if (!produto.preco_promocional) {
+    if (!produto.newPrice) {
       erros.push({ id: 4, msg: 'O campo Preço Promocional é obrigatório.' })
     }
-    console.log('erros:')
-    console.log(erros)
+
+    if (erros.length == 0) {
+      return true
+    } 
+    else {
+      setErrors(erros)
+      return false
+    }
+    
   }
   return (
     <>
       <BackButton/>
       <Card header='Cadastro Promoção'>
         <form id='frmPromocao' onSubmit={onSubmit}>
-          {/* {product.sucesso &&
-            <div className='alert alert-dismissible alert-success'>
-              <button type='button'
-                className='btn-close'
-                data-bs-dismiss='alert'></button>
-              <strong>Sucesso!</strong> Promoção cadatrada.
-            </div>
-          } */}
 
-          {/* {product.erros.length > 0 &&
-            product.erros.map((msg) => {
+          {errors.length > 0 &&
+            errors.map((msg) => {
               return (
                 <div key={msg.id} className='alert alert-dismissible alert-danger'>
                   <button type='button'
@@ -100,7 +88,7 @@ const CadastroPromocao = () => {
                 </div>
               )
             })
-          } */}
+          }
           <p className='text-danger'>* Campos obrigatórios</p>
           <Row>
             <Col colStyle='col-md-12'>
@@ -138,7 +126,7 @@ const CadastroPromocao = () => {
                   placeholder='0,00'
                   className='form-control'
                   onChange={e => setOldPrice(e.target.value)}
-                  onBlur={OnBlurPreco} />
+                />
               </div>
             </Col>
 
@@ -153,7 +141,7 @@ const CadastroPromocao = () => {
                     placeholder='0,00'
                     className='form-control'
                     onChange={e => setNewPrice(e.target.value)}
-                    onBlur={OnBlurPreco} />
+                  />
                 </div>
               </div>
             </Col>

@@ -54,6 +54,8 @@ const ContextProvider = ({children}) => {
 
   const addProduct = (product) => {
     product.img = img
+    product.likes = 0
+    product.deslikes = 0
     var newProducts = products
     newProducts.push(product)
     setProducts(newProducts)
