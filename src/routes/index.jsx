@@ -4,12 +4,13 @@ import ProductPage from '../pages/ProductPage';
 import ProfilePage from '../pages/ProfilePage';
 import CadastroPromocao from '../pages/Promocao/cadastroPromocao';
 import PromotionsPage from '../pages/PromotionsPages';
+import MarketsPage from '../pages/MarketsPages';
 
 const Router = () => {
   return(    
     <Routes>
       <Route path='*' element={<ProfilePage/>} />
-      <Route path='/markets' element={<ProfilePage/>} />
+      <Route path='/markets' element={<MarketsPage/>} />
       <Route path='/markets/:id' element={<PromotionsPage/>} />
       <Route path='/markets/:id/add-product' element={<ProfilePage/>} />
       <Route path='/products/:id' element={<ProductPage/>} />
