@@ -3,37 +3,42 @@ import BackButton from '../../components/BackButton'
 import img from '../../assets/market.jpg'
 import {BiLike} from 'react-icons/bi'
 import {BiDislike} from 'react-icons/bi'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useProductContext } from '../../contexts/useProductContext'
 
 const ProductPage = () => {
 
+  const { products} = useProductContext();
   let navigate = useNavigate()
+  let {id} = useParams();
+  const product = products[id-1]
+
   return(
     <Container>
       <BackButton/>
       <div className="sections">
         <section className="first-column">
-          <h1>Alface Verde</h1>
+          <h1>{product.name}</h1>
           <div className="image-box">
-            <img src={img} alt="" />
+            <img src={product.img} alt="" />
           </div>
           <div className="like-deslike">
             <div className='like'>
               <button><BiLike size={"7vh"}/></button>
-              <p> 52 </p>
+              <p> {product.likes} </p>
             </div>
             <div className="deslike">
               <button><BiDislike size={"7vh"}/></button>
-              <p>30 </p>
+              <p> {product.deslikes} </p>
             </div>
           </div>
           <button className='route'>Traçar Rota</button>
         </section>
         <section className="second-column">
-          <p className="old-price">De R$ 25,00</p>
-          <p className="new-price">Por R$ 10,00</p>
+          <p className="old-price">De R$ {product.oldPrice},00</p>
+          <p className="new-price">Por R$ {product.newPrice},00</p>
           <div className="info-box">
-            <p>Promoção válida até o dia 20/05. A promoção só vale para compras de mais de 2kg de Alface Verde.</p>
+            <p>{product.description}</p>
           </div>
           <div className="market">
             <img src={img} alt="" />  

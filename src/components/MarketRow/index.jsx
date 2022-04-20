@@ -1,17 +1,23 @@
 import { Container } from './styles'
 import img from '../../assets/market.jpg'
+import { useProductContext } from '../../contexts/useProductContext'
+import { useNavigate } from 'react-router-dom'
 
-const MarketRow = () => {
+const MarketRow = ({id}) => {
+
+  const navigate = useNavigate()
+  const { markets } = useProductContext()
+  const market = markets[id-1]
   return(
     <Container>
       <div className="market">
-        <img src={img} alt="" />
+        <img src={market.img} alt="" />
         <div className="info">
-          <h2 className="title">Carrefour - Asa Norte</h2>
-          <p className="address">Via W3 Norte, 504/505 - Bloco A</p>
+          <h2 className="title">{market.name}</h2>
+          <p className="address">{market.address}</p>
         </div>
         <div className="buttons">
-          <button className="details"> Detalhes </button>
+          <button className="details" onClick={() => navigate(`/markets/${id}`)}> Detalhes </button>
           <button className="route">Traçar Rota</button>
         </div>
       </div>
