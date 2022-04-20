@@ -2,7 +2,7 @@
 
 ## O que é?
 
-Projeto final da disciplina Sistemas de Informação - UnB (2021/2)
+Projeto final da disciplina Interação Humano Computador - UnB (2021/2)
 
 ## Requisitos 
 - Instalação do Node.js (Site oficial para download)
